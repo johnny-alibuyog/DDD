@@ -17,6 +17,8 @@
 
         public virtual string PostalCode { get; private set; }
 
+        public Address() { }
+
         public Address(string addressLine1, string addressLine2, string city, string state, string country, string postalCode)
         {
             this.AddressLine1 = addressLine1;

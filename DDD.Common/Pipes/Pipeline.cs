@@ -1,15 +1,15 @@
 ﻿namespace DDD.Common.Pipes
 {
-    public class Pipeline<T> : IFilterChain<T>
+    public class Pipeline<T> : IPipeline<T>
     {
-        private IFilter<T> _root;
+        private IStep<T> _root;
 
-        public void Execute(T input)
+        public T Execute(T input)
         {
-            _root.Execute(input);
+            return _root.Execute(input);
         }
 
-        public IFilterChain<T> Register(IFilter<T> filter)
+        public IPipeline<T> Register(IStep<T> filter)
         {
             if (_root == null)
                 _root = filter;

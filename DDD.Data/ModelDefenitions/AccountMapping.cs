@@ -18,6 +18,13 @@ namespace DDD.Data.ModelDefenitions
             Map(x => x.AccountNumber);
 
             Component(x => x.Balance);
+
+            HasMany(x => x.Transactions)
+             .Cascade.AllDeleteOrphan()
+             .Not.KeyNullable()
+             .Not.KeyUpdate()
+             .Inverse()
+             .AsSet();
         }
     }
 

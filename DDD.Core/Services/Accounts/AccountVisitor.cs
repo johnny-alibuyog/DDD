@@ -1,5 +1,4 @@
-﻿using System;
-using DDD.Core.Models;
+﻿using DDD.Core.Models;
 
 namespace DDD.Core.Services.Accounts
 {

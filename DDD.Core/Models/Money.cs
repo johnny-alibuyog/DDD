@@ -2,9 +2,9 @@
 {
     public class Money : ValueObject<Money>
     {
-        public virtual decimal Amount { get; set; }
+        public virtual decimal Amount { get; protected set; }
 
-        public virtual Currency Currency { get; set; }
+        public virtual Currency Currency { get; protected set; }
 
         public Money() : this(0M) { }
 

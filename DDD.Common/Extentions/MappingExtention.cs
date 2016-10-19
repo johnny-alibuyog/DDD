@@ -4,12 +4,10 @@ namespace DDD.Common.Extentions
 {
     public static class MappingExtention
     {
-        public static TDestination MapTo<TSource, TDestination>(this TSource source, TDestination destination = null)
-            where TSource : class
-            where TDestination : class
+        public static TDestination MapTo<TSource, TDestination>(this TSource source, TDestination destination)
         {
             if (source == null)
-                return null;
+                return default(TDestination);
 
             return (destination != null)
                 ? Mapper.Map<TSource, TDestination>(source, destination)

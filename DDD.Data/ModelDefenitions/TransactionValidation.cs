@@ -14,8 +14,7 @@ namespace DDD.Data.ModelDefenitions
                 .And.IsValid();
 
             Define(x => x.CurrentBalance)
-                .NotNullable()
-                .And.IsValid();
+                .IsValid();
         }
     }
 
@@ -31,11 +30,21 @@ namespace DDD.Data.ModelDefenitions
 
     public class CheckDepositValidation : ValidationDef<CheckDeposit>
     {
-        public CheckDepositValidation() { }
+        public CheckDepositValidation()
+        {
+            Define(x => x.CheckNumber)
+                .NotNullableAndNotEmpty()
+                .And.MaxLength(50);
+        }
     }
 
     public class CheckReleaseValidation : ValidationDef<CheckRelease>
     {
-        public CheckReleaseValidation() { }
+        public CheckReleaseValidation()
+        {
+            Define(x => x.CheckNumber)
+                .NotNullableAndNotEmpty()
+                .And.MaxLength(50);
+        }
     }
 }

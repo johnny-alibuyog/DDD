@@ -1,5 +1,4 @@
 ﻿using DDD.Common.Configurations;
-using DDD.Core;
 using DDD.Data.Configurations;
 using DDD.Data.Conventions;
 using DDD.Data.ModelDefenitions;
@@ -12,13 +11,18 @@ using NHibernate.Validator.Engine;
 
 namespace DDD.Data
 {
+    public interface IAuditProvider
+    {
+        object GetCurrentUserId();
+    }
+
     public class SessionFactoryProvider : ISessionFactoryProvider
     {
         internal static ValidatorEngine Validator { get; private set; }
 
         internal static IAuditProvider AuditProvider { get; private set; }
 
-        internal static ISessionFactory SessionFactory { get; private set; }
+        public static ISessionFactory SessionFactory { get; private set; }
 
         public virtual ISessionFactory GetSessionFactory() => SessionFactoryProvider.SessionFactory;
 
@@ -37,7 +41,6 @@ namespace DDD.Data
                         .Username(DbConfig.Instance.Username)
                         .Password(DbConfig.Instance.Password)
                     )
-                    //.ConnectionString(x => x.FromConnectionStringWithKey("ConnectionString"))
                     .QuerySubstitutions("true 1, false 0, yes y, no n")
                     .DefaultSchema("public")
                     .AdoNetBatchSize(15)

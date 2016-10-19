@@ -28,7 +28,7 @@ namespace DDD.Common.Configurations
         {
             this.Port = 5432;
             this.Host = "localhost";
-            this.Name = "ampedbizdb";
+            this.Name = "ddd";
             this.Username = "postgres";
             this.Password = "postgres";
             this.BatchSize = 50;
@@ -44,17 +44,17 @@ namespace DDD.Common.Configurations
             return config;
         }
 
-        protected override IConfigurationProvider OnCreateDefaultProvider(string sectionName, object configData)
-        {
-            this.Provider = new JsonFileConfigurationProvider<DbConfig>()
-            {
-                EncryptionKey = "seekrit123",
-                PropertiesToEncrypt = "Name,Username,Password",
-                JsonConfigurationFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "database.config.json"),
-            };
+        //protected override IConfigurationProvider OnCreateDefaultProvider(string sectionName, object configData)
+        //{
+        //    this.Provider = new JsonFileConfigurationProvider<DbConfig>()
+        //    {
+        //        EncryptionKey = "seekrit123",
+        //        PropertiesToEncrypt = "Name,Username,Password",
+        //        JsonConfigurationFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "database.config.json"),
+        //    };
 
-            return this.Provider;
-        }
+        //    return this.Provider;
+        //}
 
         public string GetWorkingPath(string folder = "")
         {

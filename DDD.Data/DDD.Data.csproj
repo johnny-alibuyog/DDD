@@ -109,6 +109,8 @@
     <Compile Include="ModelDefenitions\ContactValidation.cs" />
     <Compile Include="ModelDefenitions\CurrencyMapping.cs" />
     <Compile Include="ModelDefenitions\CurrencyValidation.cs" />
+    <Compile Include="ModelDefenitions\CustomerMapping.cs" />
+    <Compile Include="ModelDefenitions\CustomerValidation.cs" />
     <Compile Include="ModelDefenitions\MoneyMapping.cs" />
     <Compile Include="ModelDefenitions\MoneyValidation.cs" />
     <Compile Include="ModelDefenitions\PersonMapping.cs" />

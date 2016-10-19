@@ -18,10 +18,9 @@ namespace DDD.Core.Models
 
         public virtual IEnumerable<Transaction> Transactions { get; protected internal set; } = new Collection<Transaction>();
 
-        public AccountVisitor Accept(AccountVisitor visitor)
+        public virtual void Accept(AccountVisitor visitor)
         {
             visitor.Visit(this);
-            return visitor;
         }
     }
 }

@@ -10,9 +10,11 @@ namespace DDD.Data.ModelDefenitions
             Id(x => x.Id)
                 .GeneratedBy.Assigned();
 
-            Map(x => x.Amount);
+            Component(x => x.Amount,
+                MoneyMapping.Map("Amount_", nameof(Transaction)));
 
-            Map(x => x.CurrentBalance);
+            Component(x => x.CurrentBalance,
+                MoneyMapping.Map("CurrentBalance_", nameof(Transaction)));
         }
     }
 
@@ -28,11 +30,17 @@ namespace DDD.Data.ModelDefenitions
 
     public class CheckDepositMapping : SubclassMap<CheckDeposit>
     {
-        public CheckDepositMapping() { }
+        public CheckDepositMapping()
+        {
+            Map(x => x.CheckNumber);
+        }
     }
 
     public class CheckReleaseMapping : SubclassMap<CheckRelease>
     {
-        public CheckReleaseMapping() { }
+        public CheckReleaseMapping()
+        {
+            Map(x => x.CheckNumber);
+        }
     }
 }

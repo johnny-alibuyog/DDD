@@ -2,7 +2,7 @@
 {
     public interface IAccept<T> where T : IVisitor
     {
-        T Accept(T visitor);
+        void Accept(T visitor);
     }
 
     //public interface IReturn { }

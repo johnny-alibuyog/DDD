@@ -19,7 +19,7 @@ namespace DDD.Data.Configurations
                     x.Strategy = EntityCacheUsage.ReadWrite;
                     x.RegionName = CacheConfiguration.RegionName;
                 })
-                .EntityCache<Customer>(x =>
+                .EntityCache<Person>(x =>
                 {
                     x.Strategy = EntityCacheUsage.ReadWrite;
                     x.RegionName = CacheConfiguration.RegionName;

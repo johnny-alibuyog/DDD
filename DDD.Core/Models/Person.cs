@@ -10,7 +10,7 @@ namespace DDD.Core.Models
 
         public virtual string LastName { get; protected internal set; }
 
-        public virtual Gender? Gender { get; protected internal set; }
+        public virtual Gender Gender { get; protected internal set; }
 
         public virtual DateTime? BirthDate { get; protected internal set; }
 

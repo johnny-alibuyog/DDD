@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Entity.cs" />
     <Compile Include="IAuditable.cs" />
-    <Compile Include="IAuditProvider.cs" />
     <Compile Include="IVersionable.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Address.cs" />
@@ -94,7 +93,29 @@
     <Compile Include="Services\Accounts\AccountCreateVisitor.cs">
       <DependentUpon>AccountVisitor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\Accounts\CheckingAccountCreateVisitor.cs">
+      <DependentUpon>CheckingAccountVisitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Accounts\CheckingAccountVisitor.cs" />
     <Compile Include="Services\Accounts\AccountVisitor.cs" />
+    <Compile Include="Services\Accounts\CurrentAccountVisitor.cs" />
+    <Compile Include="Services\Accounts\SavingsAccountCloseVisitor.cs">
+      <DependentUpon>SavingsAccountVisitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Accounts\SavingsAccountDepositVisitor.cs">
+      <DependentUpon>SavingsAccountVisitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Accounts\SavingsAccountOpenVisitor.cs">
+      <DependentUpon>SavingsAccountVisitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Accounts\SavingsAccountVisitor.cs" />
+    <Compile Include="Services\Accounts\SavingsAccountWithdrawVisitor.cs">
+      <DependentUpon>SavingsAccountVisitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Customers\CustomerVisitor.cs" />
+    <Compile Include="Services\Customers\InitializeIdentityVisitor.cs">
+      <DependentUpon>CustomerVisitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\IAccept.cs" />
     <Compile Include="Services\IVisitor.cs" />
     <Compile Include="ValueObject.cs" />
