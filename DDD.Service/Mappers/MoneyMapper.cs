@@ -5,7 +5,7 @@ using ServiceModels = DDD.Service.Models;
 
 namespace DDD.Service.Mappers
 {
-    public class MoneyMapper : ICustomTypeMapper<ServiceModels.Money, CoreModels.Money>
+    internal class MoneyMapper : ICustomTypeMapper<ServiceModels.Money, CoreModels.Money>
     {
         public CoreModels.Money Map(IMappingContext<ServiceModels.Money, CoreModels.Money> context)
         {

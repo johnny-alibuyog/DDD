@@ -10,6 +10,13 @@ namespace DDD.Core.Models
 
         public virtual IEnumerable<Contact> Contacts { get; protected internal set; }
 
+        public Customer() { }
+
+        public Customer(CustomerVisitor visitor)
+        {
+            this.Accept(visitor);
+        }
+
         public virtual void Accept(CustomerVisitor visitor)
         {
             visitor.Visit(this);

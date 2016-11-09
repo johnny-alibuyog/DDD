@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DDD.Core.Models
+namespace DDD.Core.Services.People
 {
-    public class Age
+    public class Age : ValueObject<Age>
     {
         public virtual int Years { get; protected set; }
 
@@ -63,6 +59,8 @@ namespace DDD.Core.Models
             }
         }
 
+        public Age() { }
+
         public Age(DateTime BirthDate)
         {
             this.Count(BirthDate);
@@ -73,12 +71,12 @@ namespace DDD.Core.Models
             this.Count(BirthDate, CurrentDate);
         }
 
-        public Age Count(DateTime BirthDate)
+        internal Age Count(DateTime BirthDate)
         {
             return this.Count(BirthDate, DateTime.Today);
         }
 
-        public Age Count(DateTime BirthDate, DateTime CurrentDate)
+        internal Age Count(DateTime BirthDate, DateTime CurrentDate)
         {
             if ((CurrentDate.Year - BirthDate.Year) > 0 ||
                 (((CurrentDate.Year - BirthDate.Year) == 0) && ((BirthDate.Month < CurrentDate.Month) ||

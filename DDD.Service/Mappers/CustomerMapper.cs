@@ -9,7 +9,7 @@ using ServiceModels = DDD.Service.Models;
 
 namespace DDD.Service.Mappers
 {
-    public class CustomerMapper : ICustomTypeMapper<ServiceModels.Customer, CoreModels.Customer>
+    internal class CustomerMapper : ICustomTypeMapper<ServiceModels.Customer, CoreModels.Customer>
     {
         public CoreModels.Customer Map(IMappingContext<ServiceModels.Customer, CoreModels.Customer> context)
         {
@@ -30,12 +30,29 @@ namespace DDD.Service.Mappers
         }
     }
 
-    public class CustomerInitializeIdentityVisitorMapper : ICustomTypeMapper<ServiceModels.Customer, InitializeIdentityVisitor>
+    internal class CustomerReverseMapper : ICustomTypeMapper<CoreModels.Customer, ServiceModels.Customer>
     {
-        public InitializeIdentityVisitor Map(IMappingContext<ServiceModels.Customer, InitializeIdentityVisitor> context)
+        public ServiceModels.Customer Map(IMappingContext<CoreModels.Customer, ServiceModels.Customer> context)
         {
             var session = SessionFactoryProvider.SessionFactory.RetrieveSharedSession();
 
+            if (context.Source == null)
+                return null;
+
+            if (context.Destination == null)
+                context.Destination = new ServiceModels.Customer();
+
+            context.Source.MapTo(context.Destination);
+            context.Destination.Contacts = context.Source.Contacts.MapTo(default(Collection<ServiceModels.Contact>));
+
+            return context.Destination;
+        }
+    }
+
+    internal class CustomerInitializeIdentityVisitorMapper : ICustomTypeMapper<ServiceModels.Customer, InitializeIdentityVisitor>
+    {
+        public InitializeIdentityVisitor Map(IMappingContext<ServiceModels.Customer, InitializeIdentityVisitor> context)
+        {
             if (context.Source == null)
                 return null;
 

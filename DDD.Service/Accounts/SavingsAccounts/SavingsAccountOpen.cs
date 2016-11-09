@@ -40,12 +40,13 @@ namespace DDD.Service.Accounts.SavingsAccounts
                 using (var transaction = session.BeginTransaction())
                 {
                     var account = new SavingsAccount();
-                    account.Accept(message.MapTo(default(SavingsAccountOpenVisitor)));
+                    var openVisitor = message.MapTo(default(SavingsAccountOpenVisitor));
+                    account.Accept(openVisitor);
 
                     session.Save(account);
                     transaction.Commit();
 
-                    response.Id = account.Id;
+                    account.MapTo(response);
 
                     this._sessionFactory.ReleaseSharedSession();
                 }

@@ -2,5 +2,6 @@
 {
     public class SavingsAccount : Account
     {
+        public SavingsAccount() {  }
     }
 }

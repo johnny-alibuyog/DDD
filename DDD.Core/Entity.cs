@@ -4,13 +4,6 @@ namespace DDD.Core
 {
     public abstract class Entity<TId, TEntity> where TEntity : Entity<TId, TEntity>
     {
-        private int? _oldHashCode;
-
-        private bool IsTransient
-        {
-            get { return Equals(this.Id, default(TId)); }
-        }
-
         public virtual TId Id { get; protected set; }
 
         public Entity() { }
@@ -32,6 +25,13 @@ namespace DDD.Core
         }
 
         #region Equality Comparer
+
+        private int? _oldHashCode;
+
+        private bool IsTransient
+        {
+            get { return Equals(this.Id, default(TId)); }
+        }
 
         public override bool Equals(object obj)
         {

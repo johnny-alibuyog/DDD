@@ -4,7 +4,7 @@ using ServiceModels = DDD.Service.Models;
 
 namespace DDD.Service.Mappers
 {
-    public class AddressMapper : ICustomTypeMapper<ServiceModels.Address, CoreModels.Address>
+    internal class AddressMapper : ICustomTypeMapper<ServiceModels.Address, CoreModels.Address>
     {
         public CoreModels.Address Map(IMappingContext<ServiceModels.Address, CoreModels.Address> context)
         {

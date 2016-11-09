@@ -11,7 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Service", "DDD.Service\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Common", "DDD.Common\DDD.Common.csproj", "{EB680F51-9ACD-40B4-9CED-C1610199E9A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Test", "DDD.Test\DDD.Test.csproj", "{C4522229-9F1E-4F3D-BC1A-C14E3063A743}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Test.Integration", "DDD.Test.Integration\DDD.Test.Integration.csproj", "{C4522229-9F1E-4F3D-BC1A-C14E3063A743}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Test.Unit", "DDD.Test.Unit\DDD.Test.Unit.csproj", "{C4A001AA-5850-412F-A5DD-B896BBD6D416}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Sandbox", "DDD.Sandbox\DDD.Sandbox.csproj", "{F618289B-F7BC-49EC-830F-B49DD8A2CA4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{C4522229-9F1E-4F3D-BC1A-C14E3063A743}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4522229-9F1E-4F3D-BC1A-C14E3063A743}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4522229-9F1E-4F3D-BC1A-C14E3063A743}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4A001AA-5850-412F-A5DD-B896BBD6D416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A001AA-5850-412F-A5DD-B896BBD6D416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4A001AA-5850-412F-A5DD-B896BBD6D416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4A001AA-5850-412F-A5DD-B896BBD6D416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F618289B-F7BC-49EC-830F-B49DD8A2CA4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F618289B-F7BC-49EC-830F-B49DD8A2CA4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F618289B-F7BC-49EC-830F-B49DD8A2CA4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F618289B-F7BC-49EC-830F-B49DD8A2CA4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

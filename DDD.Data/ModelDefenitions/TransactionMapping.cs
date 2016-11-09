@@ -8,7 +8,9 @@ namespace DDD.Data.ModelDefenitions
         public TransactionMapping()
         {
             Id(x => x.Id)
-                .GeneratedBy.Assigned();
+                .GeneratedBy.GuidComb();
+
+            References(x => x.Account);
 
             Component(x => x.Amount,
                 MoneyMapping.Map("Amount_", nameof(Transaction)));

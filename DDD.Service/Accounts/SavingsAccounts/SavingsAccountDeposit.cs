@@ -1,6 +1,7 @@
 ﻿using DDD.Common.Extentions;
 using DDD.Core.Models;
 using DDD.Core.Services.Accounts;
+using DDD.Data;
 using MediatR;
 using NHibernate;
 using System;
@@ -20,7 +21,7 @@ namespace DDD.Service.Accounts.SavingsAccounts
 
         public class Response
         {
-            public Models.Money CurrentBalance { get; set; }
+            public Models.Money Balance { get; set; }
         }
 
         public class Handler : RequestHandlerBase<Request, Response>
@@ -31,7 +32,7 @@ namespace DDD.Service.Accounts.SavingsAccounts
             {
                 var response = new Response();
 
-                using (var session = this._sessionFactory.OpenSession())
+                using (var session = _sessionFactory.RetrieveSharedSession())
                 using (var transaction = session.BeginTransaction())
                 {
                     var account = session.Get<SavingsAccount>(message.Id);
@@ -40,6 +41,8 @@ namespace DDD.Service.Accounts.SavingsAccounts
 
                     transaction.Commit();
                     account.MapTo(response);
+
+                    _sessionFactory.ReleaseSharedSession();
                 }
 
                 return response;

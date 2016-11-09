@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DDD.Service.Models
 {
-    public class Account
+    public abstract class Account
     {
         public virtual Guid Id { get; set; }
 

@@ -9,6 +9,9 @@ namespace DDD.Data.ModelDefenitions
         {
             Define(x => x.Id);
 
+            Define(x => x.Account)
+                .NotNullable();
+
             Define(x => x.Amount)
                 .NotNullable()
                 .And.IsValid();

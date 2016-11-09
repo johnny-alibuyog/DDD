@@ -63,11 +63,13 @@
     <Compile Include="Accounts\SavingsAccounts\SavingsAccountList.cs" />
     <Compile Include="Accounts\SavingsAccounts\SavingsAccountRead.cs" />
     <Compile Include="Accounts\SavingsAccounts\SavingsAccountWithdraw.cs" />
+    <Compile Include="Mappers\AccountMapper.cs" />
     <Compile Include="Mappers\ContactMapper.cs" />
     <Compile Include="Mappers\MappingRegistrar.cs" />
     <Compile Include="Mappers\AddressMapper.cs" />
     <Compile Include="Mappers\CustomerMapper.cs" />
     <Compile Include="Mappers\MoneyMapper.cs" />
+    <Compile Include="Mappers\TransactionMapper.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Age.cs" />
@@ -134,6 +136,10 @@
       <Project>{5fd8182c-ca5f-4568-9700-297eb8c49145}</Project>
       <Name>DDD.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Accounts\CheckingAccounts\" />
+    <Folder Include="Accounts\CurrentAccounts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

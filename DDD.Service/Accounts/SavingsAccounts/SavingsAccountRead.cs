@@ -30,6 +30,7 @@ namespace DDD.Service.Accounts.SavingsAccounts
                     var account = session.QueryOver<SavingsAccount>()
                         .Where(x => x.Id == message.Id)
                         .Fetch(x => x.Owner).Eager
+                        .Fetch(x => x.Owner.Contacts).Eager
                         .Fetch(x => x.Balance.Currency).Eager
                         .Fetch(x => x.Transactions).Eager
                         .Fetch(x => x.Transactions.First().Amount.Currency).Eager

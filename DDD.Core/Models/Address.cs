@@ -19,7 +19,7 @@
 
         public Address() { }
 
-        public Address(string addressLine1, string addressLine2, string city, string state, string country, string postalCode)
+        public Address(string addressLine1 = null, string addressLine2 = null, string city = null, string state = null, string country = null, string postalCode = null)
         {
             this.AddressLine1 = addressLine1;
             this.AddressLine2 = addressLine2;

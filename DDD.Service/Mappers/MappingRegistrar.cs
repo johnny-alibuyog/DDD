@@ -12,8 +12,9 @@ namespace DDD.Service.Mappers
             Mapper.RegisterCustom<ServiceModels.Customer, CoreModels.Customer, CustomerMapper>();
             Mapper.RegisterCustom<ServiceModels.Contact, CoreModels.Contact, ContactMapper>();
             Mapper.RegisterCustom<CoreModels.Contact, ServiceModels.Contact, ContactReverseMapper>();
-            //Mapper.RegisterCustom<ServiceModels.Customer, InitializeIdentityVisitor, CustomerInitializeIdentityVisitorMapper>();
             Mapper.RegisterCustom<ServiceModels.Money, CoreModels.Money, MoneyMapper>();
+            Mapper.RegisterCustom<ServiceModels.Transaction, CoreModels.Transaction, TransactionMapper>();
+            Mapper.RegisterCustom<CoreModels.Transaction, ServiceModels.Transaction, TransactionReverseMapper>();
         }
     }
 }

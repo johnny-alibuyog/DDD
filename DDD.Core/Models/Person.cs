@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DDD.Core.Services.People;
+using System;
 
 namespace DDD.Core.Models
 {

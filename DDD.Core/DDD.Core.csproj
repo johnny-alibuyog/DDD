@@ -122,12 +122,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Events\" />
+    <Folder Include="Services\People\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DDD.Common\DDD.Common.csproj">
       <Project>{eb680f51-9acd-40b4-9ced-c1610199e9a0}</Project>
       <Name>DDD.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

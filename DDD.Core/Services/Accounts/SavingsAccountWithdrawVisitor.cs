@@ -17,7 +17,7 @@ namespace DDD.Core.Services.Accounts
                 throw new BusinessException("Unable to withdraw. No balance.");
 
             if (target.Balance.Amount < this.Amount.Amount)
-                throw new BusinessException("Unable to withdraw. No balance.");
+                throw new BusinessException("Unable to withdraw. Amount is greater than balance.");
 
             var withdrawal = new CashWithdrawal()
             {

@@ -2,10 +2,9 @@
 using CoreModels = DDD.Core.Models;
 using ServiceModels = DDD.Service.Models;
 
-
 namespace DDD.Service.Mappers
 {
-    public class ContactMapper : ICustomTypeMapper<ServiceModels.Contact, CoreModels.Contact>
+    internal class ContactMapper : ICustomTypeMapper<ServiceModels.Contact, CoreModels.Contact>
     {
         public CoreModels.Contact Map(IMappingContext<ServiceModels.Contact, CoreModels.Contact> context)
         {
@@ -28,7 +27,7 @@ namespace DDD.Service.Mappers
         }
     }
 
-    public class ContactReverseMapper : ICustomTypeMapper<CoreModels.Contact, ServiceModels.Contact>
+    internal class ContactReverseMapper : ICustomTypeMapper<CoreModels.Contact, ServiceModels.Contact>
     {
         public ServiceModels.Contact Map(IMappingContext<CoreModels.Contact, ServiceModels.Contact> context)
         {
