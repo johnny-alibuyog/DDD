@@ -36,16 +36,16 @@ namespace DDD.Service.Mappers
                 return null;
 
             if (context.Source is CoreModels.CashDeposit)
-                context.Destination = context.Source.MapTo(default(ServiceModels.CashDeposit));
+                context.Destination = context.Source.MapTo(new ServiceModels.CashDeposit());
 
             if (context.Source is CoreModels.CashWithdrawal)
-                context.Destination = context.Source.MapTo(default(ServiceModels.CashWithdrawal));
+                context.Destination = context.Source.MapTo(new ServiceModels.CashWithdrawal());
 
             if (context.Source is CoreModels.CheckDeposit)
-                context.Destination = context.Source.MapTo(default(ServiceModels.CheckDeposit));
+                context.Destination = context.Source.MapTo(new ServiceModels.CheckDeposit());
 
             if (context.Source is CoreModels.CheckRelease)
-                context.Destination = context.Source.MapTo(default(ServiceModels.CheckRelease));
+                context.Destination = context.Source.MapTo(new ServiceModels.CheckRelease());
 
             return context.Destination;
         }

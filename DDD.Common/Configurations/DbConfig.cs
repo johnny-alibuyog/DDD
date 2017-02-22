@@ -30,7 +30,7 @@ namespace DDD.Common.Configurations
             this.Host = "localhost";
             this.Name = "ddd";
             this.Username = "postgres";
-            this.Password = "postgres";
+            this.Password = "123!@#qwe";
             this.BatchSize = 50;
             this.UseDummyData = true;
             this.RecreateDb = true;
