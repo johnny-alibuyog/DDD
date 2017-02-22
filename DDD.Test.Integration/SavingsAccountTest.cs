@@ -7,6 +7,7 @@ using MediatR;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DDD.Test.IntegrationTest
 {
@@ -17,11 +18,11 @@ namespace DDD.Test.IntegrationTest
         private Guid _accountId;
 
         [OneTimeSetUp]
-        public void OneTimeSetUp()
+        public async Task OneTimeSetUp()
         {
             _mediator = IoC.Container.Resolve<IMediator>();
 
-            var respone = this._mediator.Send(new SavingsAccountOpen.Request()
+            var respone = await this._mediator.Send(new SavingsAccountOpen.Request()
             {
                 Owner = MockData.Customer,
                 AccountName = "Johnny A",
@@ -34,14 +35,14 @@ namespace DDD.Test.IntegrationTest
         }
 
         [Test]
-        public void ShouldAddDepositAmountToBalance()
+        public async Task ShouldAddDepositAmountToBalance()
         {
             // arrange
-            var account = _mediator.Send(new SavingsAccountRead.Request() { Id = _accountId });
+            var account = await _mediator.Send(new SavingsAccountRead.Request() { Id = _accountId });
             var expected = account.Balance.Amount + 2000M;
 
             // act
-            var response = this._mediator.Send(new SavingsAccountDeposit.Request()
+            var response = await this._mediator.Send(new SavingsAccountDeposit.Request()
             {
                 Id = this._accountId,
                 Date = DateTime.UtcNow,
@@ -53,14 +54,14 @@ namespace DDD.Test.IntegrationTest
         }
 
         [Test]
-        public void ShouldSubtractWithdrwanAmountToBalance()
+        public async Task ShouldSubtractWithdrwanAmountToBalance()
         {
             // arrange
-            var account = _mediator.Send(new SavingsAccountRead.Request() { Id = _accountId });
+            var account = await _mediator.Send(new SavingsAccountRead.Request() { Id = _accountId });
             var expected = account.Balance.Amount - 2000M;
 
             // act
-            var response = this._mediator.Send(new SavingsAccountWithdraw.Request()
+            var response = await this._mediator.Send(new SavingsAccountWithdraw.Request()
             {
                 Id = this._accountId,
                 Date = DateTime.UtcNow,
@@ -75,9 +76,9 @@ namespace DDD.Test.IntegrationTest
         public void ShouldThrowErrorWhenWithdrwanAmountIsGreaterThanBalance()
         {
             // assert
-            Assert.Throws<BusinessException>(() =>
+            Assert.ThrowsAsync<BusinessException>(async () =>
             {
-                this._mediator.Send(new SavingsAccountWithdraw.Request()
+                await this._mediator.Send(new SavingsAccountWithdraw.Request()
                 {
                     Id = this._accountId,
                     Date = DateTime.UtcNow,
